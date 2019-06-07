@@ -5,7 +5,7 @@
 <script>
   AFRAME.registerComponent('clickobjects', {
     init: function () {
-      var objects = this.el;
+      var objects = document.querySelector('#grass-marker');
 
       objects.addEventListener('click', function(evt) {
         ++count
@@ -22,7 +22,7 @@
 <a-scene embedded arjs="debugUIEnabled:false;">
 
   <!-- 芝 -->
-  <a-marker type='pattern' url='./marker/grass.patt' clickobjects>
+  <a-marker type='pattern' url='./marker/grass.patt' id="grass-marker" clickobjects>
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(./assets/grass/grass_weed_model.gltf);"
               animation-mixer="loop: pingpong;"
