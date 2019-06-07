@@ -22,6 +22,9 @@
 
 <!-- シーンの追加とデバックUIを非表示 -->
 <a-scene embedded arjs="debugUIEnabled:false;">
+  <a-assets>
+    <img id="background" src="https://dychi.github.io/bitakin_arjs/imgs/safari.jpg">
+  </a-assets>
 
   <!-- 芝 -->
   <a-marker type='pattern' url='./marker/grass.patt' id="grass-marker" clickobjects>
@@ -48,6 +51,7 @@
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
+    <a-plane src="#background" rotation="-90 0 0" width="1" height="1"></a-plane>
 
   </a-marker>
   
