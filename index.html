@@ -18,21 +18,14 @@
               scale="0.15 0.15 0.15"
               shadow="receive: true"></a-entity>
 
-    <a-plane position="0 0 0"
-             rotation="-90 0 0"
-             width="2" height="2"
-             color="#fff"
-             shadow="receive: true"></a-plane>
+    <a-box position="0 0.5 0" wireframe="true"></a-box>
 
-    <a-entity light="type: directional; color: #fff; castShadow:true;"
-              position="-10 10 10"></a-entity>
   </a-marker>
 
   <!-- 作成したマーカーでのソース -->
   <a-marker type='pattern' url='./marker/giraffe.patt'>
     <!-- オブジェクトの追加 -->
-    <a-entity obj-model="obj: url(./assets/giraffe/giraffe.obj);
-                         mtl: url(./assets/giraffe/giraffe.mtl)"
+    <a-entity gltf-model="src: url(./assets/giraffe/giraffe.gltf);"
               animation-mixer="loop: pingpong;"
               position="-0.5 0.1 -1"
               rotation="-90 0 0"
@@ -41,8 +34,6 @@
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
 
-    <a-entity light="type: directional; color: #fff; castShadow:true;"
-              position="-10 10 10"></a-entity>
   </a-marker>
 
 
