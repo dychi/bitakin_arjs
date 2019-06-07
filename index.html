@@ -7,9 +7,10 @@
     init: function () {
       var objects = this.el;
 
-      objects.addEventListener('click', function() {
+      objects.addEventListener('click', function(evt) {
         ++count
         console.log('Count:', count);
+        console.log('Objects Clicked.');
 
       });
     }
