@@ -5,12 +5,15 @@
 <script>
   AFRAME.registerComponent('clickobjects', {
     init: function () {
-      var objects = document.querySelector('#grass-marker');
+      // var objects = document.querySelector('#grass-marker');
+      var marker = this.el;
 
-      objects.addEventListener('click', function(evt) {
+      marker.addEventListener('click', function(evt) {
+        var markerId = marker.id;
+        console.log('Marker ID:', markerId);
+        console.log('Objects Clicked.');
         ++count
         console.log('Count:', count);
-        console.log('Objects Clicked.');
 
       });
     }
@@ -36,7 +39,7 @@
   </a-marker>
 
   <!-- キリン -->
-  <a-marker type='pattern' url='./marker/giraffe.patt'>
+  <a-marker type='pattern' url='./marker/giraffe.patt' id="giraffe-marker" clickobjects>
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(./assets/giraffe/giraffe.gltf);"
               animation-mixer="loop: pingpong;"
