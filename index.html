@@ -7,11 +7,14 @@
     init: function () {
       // var objects = document.querySelector('#grass-marker');
       var marker = this.el;
+      var defaulColor = marker.getAttribute('material').color;
 
       marker.addEventListener('click', function(evt) {
         var markerId = marker.id;
         console.log('Marker ID:', markerId);
         console.log('Objects Clicked.');
+        console.log(defaulColor);
+        marker.setAttribute('material', defaulColor);
         // ++count
         // console.log('Count:', count);
       });
@@ -40,7 +43,7 @@
               scale="0.15 0.15 0.15"
               shadow="receive: true"></a-entity>
 
-    <a-box position="0 0.5 0" wireframe="true"></a-box>
+    <a-box position="0 0.5 0" wireframe="true" color="#006400" clickobjects="color: red"></a-box>
 
   </a-marker>
 
@@ -54,9 +57,7 @@
               scale="0.01 0.01 0.01"
               shadow="receive: true"></a-entity>
 
-    <a-box position="0 0.5 0"
-           event-set__click="material.color: red"
-           wireframe="true"></a-box>
+    <a-box position="0 0.5 0" wireframe="true"></a-box>
     <a-plane plane-click
              src="#background"
              position="0 -4 0"
