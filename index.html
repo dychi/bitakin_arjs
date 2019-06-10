@@ -25,6 +25,19 @@
     }
   });
 </script>
+<script>
+  AFRAME.registerComponent('detectMarker', function () {
+      init: function f() {
+          var marker = this.el;
+
+          marker.addEventListener('markerFound', function () {
+              var markerId = marker.id;
+              console.log(markerId);
+              marker.setAttribute('material', 'color: blue');
+          });
+      }
+  });
+</script>
 <body style='margin: 0; overflow: hidden;'>
 
 <!-- シーンの追加とデバックUIを非表示 -->
@@ -68,7 +81,7 @@
   </a-marker>
   
   <!-- パンダ -->
-  <a-marker type='pattern' url='./marker/panda.patt'>
+  <a-marker type='pattern' url='./marker/panda.patt' detectMarker>
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(./assets/panda/panda.gltf);"
               animation-mixer="loop: pingpong;"
@@ -77,7 +90,7 @@
               scale="0.01 0.01 0.01"
               shadow="receive: true"></a-entity>
 
-    <a-box position="0 0.5 0" wireframe="true"></a-box>
+    <a-box position="0 0.5 0" wireframe="true" id="panda-box"></a-box>
 
   </a-marker>
 
