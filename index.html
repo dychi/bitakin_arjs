@@ -68,6 +68,19 @@
   </a-marker>
   
   <!-- パンダ -->
+  <a-marker type='pattern' url='./marker/panda.patt'>
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/panda/panda.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.01 0.01 0.01"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true"></a-box>
+
+  </a-marker>
+
   <!-- しろくま -->
   <!-- ライオン -->
   <!-- 子鹿 -->
