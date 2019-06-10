@@ -28,7 +28,7 @@
 </script>
 <script>
   console.log('Log First!');
-  AFRAME.registerComponent('detectMarker', {
+  AFRAME.registerComponent('detectmarker', {
       init: function () {
           var marker = this.el;
 
@@ -45,7 +45,7 @@
 <!-- シーンの追加とデバックUIを非表示 -->
 <a-scene embedded arjs="debugUIEnabled:false;">
   <a-assets>
-    <img id="background" src="https://dychi.github.io/bitakin_arjs/imgs/safari.jpg">
+    <img id="background" crossorigin="anonymous" src="https://dychi.github.io/bitakin_arjs/imgs/safari.jpg">
   </a-assets>
 
   <!-- 芝 -->
@@ -86,6 +86,7 @@
   <a-marker type='pattern' url='./patterns/panda.patt' >
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(./assets/panda/panda.gltf);"
+              animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
               scale="0.01 0.01 0.01"
