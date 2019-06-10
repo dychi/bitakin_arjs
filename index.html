@@ -6,7 +6,7 @@
 <script>
   AFRAME.registerComponent('change-color-with-click', {
       init: function () {
-          var marker = this.el;
+          var markerId = this.el.id;
           console.log(markerId);
           var boxId = markerId + "-box";
           console.log(boxId);
