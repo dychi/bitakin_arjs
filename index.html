@@ -23,20 +23,15 @@
         // ++count
         // console.log('Count:', count);
       });
-
-      marker.addEventListener('plane-click', function(evt) {
-        console.log('Plane Click');
-      });
     }
   });
 </script>
 <script>
-  console.log('Log First!');
   AFRAME.registerComponent('detectmarker', {
       init: function () {
           var marker = this.el;
 
-          marker.addEventListener('markerFound', function () {
+          marker.addEventListener('click', function () {
               var markerId = marker.id;
               console.log(markerId);
               marker.setAttribute('material', 'color', 'blue');
@@ -70,7 +65,7 @@
   </a-marker>
 
   <!-- キリン -->
-  <a-marker type='pattern' url='./patterns/giraffe.patt' id="giraffe-marker">
+  <a-marker type='pattern' url='./patterns/giraffe.patt' id="giraffe-marker" detectmarker>
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(./assets/giraffe/giraffe.gltf);"
               animation-mixer="loop: pingpong;"
@@ -80,8 +75,7 @@
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
-    <a-plane plane-click
-             src="#background"
+    <a-plane src="#background"
              position="0 -4 0"
              rotation="-90 0 0"
              width="8"
