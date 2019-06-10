@@ -27,6 +27,7 @@
   });
 </script>
 <script>
+  console.log('Log First!');
   AFRAME.registerComponent('detectMarker', {
       init: function () {
           var marker = this.el;
@@ -48,7 +49,7 @@
   </a-assets>
 
   <!-- 芝 -->
-  <a-marker type='pattern' url='./patterns/grass.patt' id="grass-marker" clickobjects>
+  <a-marker type='pattern' url='./patterns/grass.patt' id="grass-marker">
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(./assets/grass/grass_weed_model.gltf);"
               animation-mixer="loop: pingpong;"
@@ -62,7 +63,7 @@
   </a-marker>
 
   <!-- キリン -->
-  <a-marker type='pattern' url='./patterns/giraffe.patt' id="giraffe-marker" clickobjects>
+  <a-marker type='pattern' url='./patterns/giraffe.patt' id="giraffe-marker">
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(./assets/giraffe/giraffe.gltf);"
               animation-mixer="loop: pingpong;"
