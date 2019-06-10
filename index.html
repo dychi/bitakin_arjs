@@ -5,6 +5,10 @@
 <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
 <script>
   AFRAME.registerComponent('clickobjects', {
+    schema: {
+        color: {default: 'red'}
+    },
+
     init: function () {
       // var objects = document.querySelector('#grass-marker');
       var marker = this.el;
