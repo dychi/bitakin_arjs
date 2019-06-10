@@ -7,13 +7,14 @@
   AFRAME.registerComponent('change-color-with-click', {
       init: function () {
           var marker = this.el;
+          console.log(markerId);
+          var boxId = markerId + "-box";
+          console.log(boxId);
+          var box = document.querySelector(boxId);
 
-          marker.addEventListener('click', function () {
-              var markerId = marker.id;
-              console.log(markerId);
-              var boxId = markerId + "-box";
-              console.log(boxId);
-              boxId.setAttribute('material', 'color', 'red');
+          box.addEventListener('click', function () {
+
+              box.setAttribute('material', 'color', 'red');
           });
       }
   });
