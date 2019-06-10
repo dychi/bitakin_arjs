@@ -26,8 +26,8 @@
   });
 </script>
 <script>
-  AFRAME.registerComponent('detectMarker', function () {
-      init: function f() {
+  AFRAME.registerComponent('detectMarker', {
+      init: function () {
           var marker = this.el;
 
           marker.addEventListener('markerFound', function () {
