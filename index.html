@@ -4,37 +4,14 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
 <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
 <script>
-  AFRAME.registerComponent('clickobjects', {
-    schema: {
-        color: {default: 'red'}
-    },
-
-    init: function () {
-      // var objects = document.querySelector('#grass-marker');
-      var marker = this.el;
-      var defaulColor = marker.getAttribute('material').color;
-
-      marker.addEventListener('click', function(evt) {
-        var markerId = marker.id;
-        console.log('Marker ID:', markerId);
-        console.log('Objects Clicked.');
-        console.log(defaulColor);
-        marker.setAttribute('material', defaulColor);
-        // ++count
-        // console.log('Count:', count);
-      });
-    }
-  });
-</script>
-<script>
-  AFRAME.registerComponent('detectmarker', {
+  AFRAME.registerComponent('change-color-with-click', {
       init: function () {
           var marker = this.el;
 
           marker.addEventListener('click', function () {
               var markerId = marker.id;
               console.log(markerId);
-              marker.setAttribute('material', 'color', 'blue');
+              marker.setAttribute('material', 'color', 'red');
           });
       }
   });
@@ -60,12 +37,12 @@
               scale="0.15 0.15 0.15"
               shadow="receive: true"></a-entity>
 
-    <a-box position="0 0.5 0" wireframe="true" color="#006400" clickobjects="color: red"></a-box>
+    <a-box position="0 0.5 0" wireframe="true" color="#006400" id="grass-box" change-color-with-click></a-box>
 
   </a-marker>
 
   <!-- キリン -->
-  <a-marker type='pattern' url='./patterns/giraffe.patt' id="giraffe-marker" detectmarker>
+  <a-marker type='pattern' url='./patterns/giraffe.patt' id="giraffe-marker">
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(./assets/giraffe/giraffe.gltf);"
               animation-mixer="loop: pingpong;"
@@ -74,7 +51,7 @@
               scale="0.01 0.01 0.01"
               shadow="receive: true"></a-entity>
 
-    <a-box position="0 0.5 0" wireframe="true"></a-box>
+    <a-box position="0 0.5 0" wireframe="true" id="giraffe-box" change-color-with-click></a-box>
     <a-plane src="#background"
              position="0 -4 0"
              rotation="-90 0 0"
