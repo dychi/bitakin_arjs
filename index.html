@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="./src/camera.css">
+<link rel="stylesheet" type="text/css" href="src/camera.css">
 <!-- ① スクリプトの読み込み -->
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
@@ -27,14 +27,16 @@
   <a-entity camera look-controls>
     <a-entity cursor="rayOrigin: mouse"></a-entity>
   </a-entity>
+  <!-- アセットを定義 -->
   <a-assets>
-    <img id="background" crossorigin="anonymous" src="https://dychi.github.io/bitakin_arjs/imgs/safari.jpg">
+    <a-asset-item id="grass-gltf" src="assets/grass/grass_weed_model.gltf"></a-asset-item>
+    <a-asset-item id="giraffe-gltf" src="assets/giraffe/giraffe.gltf"></a-asset-item>
   </a-assets>
 
   <!-- 芝 -->
   <a-marker type='pattern' url='./patterns/grass.patt' id="grass" change-color-with-click>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(./assets/grass/grass_weed_model.gltf);"
+    <a-entity gltf-model="#grass-gltf"
               animation-mixer="loop: pingpong;"
               position="-0.5 0.1 0.5"
               rotation="-90 0 0"
@@ -48,7 +50,7 @@
   <!-- キリン -->
   <a-marker type='pattern' url='./patterns/giraffe.patt' id="giraffe" change-color-with-click>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(./assets/giraffe/giraffe.gltf);"
+    <a-entity gltf-model="#giraffe-gltf"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
@@ -56,11 +58,6 @@
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true" id="giraffe-box"></a-box>
-    <a-plane src="#background"
-             position="0 -4 0"
-             rotation="-90 0 0"
-             width="4"
-             height="4"></a-plane>
 
   </a-marker>
   
