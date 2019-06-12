@@ -23,35 +23,35 @@
 <body style='margin: 0; overflow: hidden;'>
 
 <!-- シーンの追加とデバックUIを非表示 -->
-<a-scene embedded arjs="debugUIEnabled:false; patternRatio=0.70" vr-mode-ui="enabled: false">
+<a-scene embedded arjs="debugUIEnabled:false; patternRatio=0.70" vr-mode-ui="enabled: false" gltf-model="dracoDecoderPath: assets/origin/;">
   <a-entity camera look-controls>
     <a-entity cursor="rayOrigin: mouse"></a-entity>
   </a-entity>
   <!-- アセットを定義 -->
   <a-assets timeout="100000000">
-    <a-asset-item id="grass-gltf" src="url(assets/grass_weed_model.gltf)"></a-asset-item>
+    <a-asset-item id="grass-gltf" src="url(grass_weed_model.glb)"></a-asset-item>
     <!-- キリン -->
-    <a-asset-item id="giraffe-gltf" src="url(assets/draco/giraffe.gltf)"></a-asset-item>
+    <a-asset-item id="giraffe-gltf" src="url(giraffe.glb)"></a-asset-item>
     <!-- パンダ -->
-    <a-asset-item id="panda-gltf" src="url(assets/draco/panda.gltf)"></a-asset-item>
+    <a-asset-item id="panda-gltf" src="url(panda.glb)"></a-asset-item>
     <!-- しろくま -->
-    <a-asset-item id="white_bear-gltf" src="url(assets/draco/white_bear.gltf)"></a-asset-item>
+    <a-asset-item id="white_bear-gltf" src="url(white_bear.glb)"></a-asset-item>
     <!-- ライオン -->
-    <a-asset-item id="lion-gltf" src="url(assets/draco/lion.gltf)"></a-asset-item>
+    <a-asset-item id="lion-gltf" src="url(lion.glb)"></a-asset-item>
     <!-- 子鹿 -->
-    <a-asset-item id="fawn-gltf" src="url(assets/draco/fawn.gltf)"></a-asset-item>
+    <a-asset-item id="fawn-gltf" src="url(fawn.glb)"></a-asset-item>
     <!-- ワニ -->
-    <a-asset-item id="aligator-gltf" src="url(assets/draco/aligator.gltf)"></a-asset-item>
+    <a-asset-item id="aligator-gltf" src="url(aligator.glb)"></a-asset-item>
     <!-- 象 -->
-    <a-asset-item id="elephant-gltf" src="url(assets/draco/elephant.gltf)"></a-asset-item>
+    <a-asset-item id="elephant-gltf" src="url(elephant.glb)"></a-asset-item>
     <!-- アライグマ -->
-    <a-asset-item id="racoon-gltf" src="url(assets/draco/racoon.gltf)"></a-asset-item>
+    <a-asset-item id="racoon-gltf" src="url(racoon.glb)"></a-asset-item>
     <!-- ねこ -->
-    <a-asset-item id="cat-gltf" src="url(assets/draco/cat.gltf)"></a-asset-item>
+    <a-asset-item id="cat-gltf" src="url(cat.glb)"></a-asset-item>
     <!-- キツネ -->
-    <a-asset-item id="fox-gltf" src="url(assets/draco/fox.gltf)"></a-asset-item>
+    <a-asset-item id="fox-gltf" src="url(fox.glb)"></a-asset-item>
     <!-- ひつじ -->
-    <a-asset-item id="sheep-gltf" src="url(assets/draco/sheep.gltf)"></a-asset-item>
+    <a-asset-item id="sheep-gltf" src="url(sheep.glb)"></a-asset-item>
   </a-assets>
 
   <!-- 芝 -->

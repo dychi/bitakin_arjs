@@ -8,4 +8,4 @@ originalData/
 originalData.zip
 originalImg/
 
-assets/origin/
+assets/origin/*.gltf
