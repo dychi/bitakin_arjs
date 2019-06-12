@@ -23,14 +23,35 @@
 <body style='margin: 0; overflow: hidden;'>
 
 <!-- シーンの追加とデバックUIを非表示 -->
-<a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
+<a-scene embedded arjs="debugUIEnabled:false; patternRatio=0.70" vr-mode-ui="enabled: false">
   <a-entity camera look-controls>
     <a-entity cursor="rayOrigin: mouse"></a-entity>
   </a-entity>
   <!-- アセットを定義 -->
   <a-assets>
     <a-asset-item id="grass-gltf" src="assets/grass/grass_weed_model.gltf"></a-asset-item>
+    <!-- キリン -->
     <a-asset-item id="giraffe-gltf" src="assets/giraffe/giraffe.gltf"></a-asset-item>
+    <!-- パンダ -->
+    <a-asset-item id="panda-gltf" src="assets/panda/panda.gltf"></a-asset-item>
+    <!-- しろくま -->
+    <a-asset-item id="white_bear-gltf" src="assets/white_bear/white_bear.gltf"></a-asset-item>
+    <!-- ライオン -->
+    <a-asset-item id="lion-gltf" src="assets/lion/lion.gltf"></a-asset-item>
+    <!-- 子鹿 -->
+    <a-asset-item id="fawn-gltf" src="assets/fawn/fawn.gltf"></a-asset-item>
+    <!-- ワニ -->
+    <a-asset-item id="aligator-gltf" src="assets/aligator/aligator.gltf"></a-asset-item>
+    <!-- 象 -->
+    <a-asset-item id="elephant-gltf" src="assets/elephant/elephant.gltf"></a-asset-item>
+    <!-- アライグマ -->
+    <a-asset-item id="racoon-gltf" src="assets/racoon/racoon.gltf"></a-asset-item>
+    <!-- ねこ -->
+    <a-asset-item id="cat-gltf" src="assets/cat/cat.gltf"></a-asset-item>
+    <!-- キツネ -->
+    <a-asset-item id="fox-gltf" src="assets/fox/fox.gltf"></a-asset-item>
+    <!-- ひつじ -->
+    <a-asset-item id="sheep-gltf" src="assets/sheep/sheep.gltf"></a-asset-item>
   </a-assets>
 
   <!-- 芝 -->
@@ -48,7 +69,7 @@
   </a-marker>
 
   <!-- キリン -->
-  <a-marker type='pattern' url='./patterns/giraffe.patt' id="giraffe" change-color-with-click>
+  <a-marker type='pattern' url='./patterns/pattern-giraffe.patt' id="giraffe" change-color-with-click>
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="#giraffe-gltf"
               animation-mixer="loop: pingpong;"
@@ -62,7 +83,7 @@
   </a-marker>
   
   <!-- パンダ -->
-  <a-marker type='pattern' url='./patterns/panda.patt' >
+  <a-marker type='pattern' url='./patterns/pattern-panda.patt' >
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(./assets/panda/panda.gltf);"
               animation-mixer="loop: pingpong;"
@@ -76,15 +97,122 @@
   </a-marker>
 
   <!-- しろくま -->
+ <a-marker type='pattern' url='./patterns/pattern-white_bear.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/white_bear/white_bear.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true" id="white_bear-box" detectmarker></a-box>
+
+  </a-marker>
   <!-- ライオン -->
+  <a-marker type='pattern' url='./patterns/pattern-lion.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/lion/lion.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true" id="lion-box" detectmarker></a-box>
+
+  </a-marker>
   <!-- 子鹿 -->
+  <a-marker type='pattern' url='./patterns/pattern-fawn.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/fawn/fawn.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true" id="fawn-box" detectmarker></a-box>
+
+  </a-marker>
   <!-- ワニ -->
-  <!-- イルカ -->
+  <a-marker type='pattern' url='./patterns/pattern-aligator.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/aligator/aligator.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true" id="aligator-box" detectmarker></a-box>
+
+  </a-marker>
   <!-- 象 -->
+  <a-marker type='pattern' url='./patterns/pattern-elephant.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/elephant/elephant.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true" id="elephant-box" detectmarker></a-box>
+
+  </a-marker>
   <!-- アライグマ -->
+  <a-marker type='pattern' url='./patterns/pattern-racoon.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/racoon/racoon.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true" id="racoon-box" detectmarker></a-box>
+
+  </a-marker>
   <!-- ねこ -->
+  <a-marker type='pattern' url='./patterns/pattern-cat.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/cat/cat.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true" id="cat-box" detectmarker></a-box>
+
+  </a-marker>
   <!-- キツネ -->
+  <a-marker type='pattern' url='./patterns/pattern-fox.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/fox/fox.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true" id="fox-box" detectmarker></a-box>
+
+  </a-marker>
   <!-- ひつじ -->
+  <a-marker type='pattern' url='./patterns/pattern-sheep.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(./assets/sheep/sheep.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true" id="sheep-box" detectmarker></a-box>
+
+  </a-marker>
 
   <a-entity camera></a-entity>
 </a-scene>
