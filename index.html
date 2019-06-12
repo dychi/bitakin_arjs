@@ -23,7 +23,7 @@
 <body style='margin: 0; overflow: hidden;'>
 
 <!-- シーンの追加とデバックUIを非表示 -->
-<a-scene embedded arjs="debugUIEnabled:false; patternRatio=0.70" vr-mode-ui="enabled: false">
+<a-scene embedded arjs="debugUIEnabled:false; trackingMethod:best; patternRatio=0.70">
   <a-entity camera look-controls>
     <a-entity cursor="rayOrigin: mouse"></a-entity>
   </a-entity>
@@ -47,7 +47,7 @@
   </a-marker>
 
   <!-- キリン -->
-  <a-marker type='pattern' url='patterns/pattern-giraffe.patt' id="giraffe" >
+  <a-marker type='pattern' url='./patterns/pattern-giraffe.patt' id="giraffe" >
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(assets/origin/giraffe.gltf)"
               animation-mixer="loop: pingpong;"
