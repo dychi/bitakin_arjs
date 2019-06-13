@@ -16,7 +16,7 @@
           messagingSenderId: "282279276879",
           appId: "1:282279276879:web:9850b8636d0f665c"
       };
-      firebase.database();
+      firebase.database(firebaseConfig);
       function googleClick() {
           var provider = new firebase.auth.GoogleAuthProvider();
           provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
