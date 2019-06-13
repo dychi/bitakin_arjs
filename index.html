@@ -4,6 +4,7 @@
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
 <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
+<script src="https://raw.githubusercontent.com/youmustfight/aframe-asset-lazy-load/master/dist/aframe-asset-layz-load.min.js"></script>
 <script>
   AFRAME.registerComponent('change-color-with-click', {
       init: function () {
@@ -50,6 +51,7 @@
   <a-marker type='pattern' url='./patterns/pattern-giraffe.patt' id="giraffe" >
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(assets/origin/giraffe.gltf)"
+              lazy-load="delay: 1000;src: url(assets/origin/giraffe.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
@@ -64,6 +66,7 @@
   <a-marker type='pattern' url='patterns/pattern-panda.patt' >
     <!-- オブジェクトの追加 -->
     <a-entity gltf-model="src: url(assets/origin/panda.gltf)"
+              lazy-load="delay: 1000;src: url(assets/origin/panda.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
