@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="src/camera.css">
+<!-- ① スクリプトの読み込み -->
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
+<script src="https://raw.githubusercontent.com/youmustfight/aframe-asset-lazy-load/master/dist/aframe-asset-layz-load.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+<script>
+  var firebaseConfig = {
+      apiKey: "AIzaSyDeJMB84msf_TgWu4MKCWwZg9SRv0r7NOo",
+      authDomain: "bitakinar.firebaseapp.com",
+      databaseURL: "https://bitakinar.firebaseio.com",
+      projectId: "bitakinar",
+      storageBucket: "bitakinar.appspot.com",
+      messagingSenderId: "282279276879",
+      appId: "1:282279276879:web:9850b8636d0f665c"
+  };
+  firebase.initializeApp(firebaseConfig);
+    dict = {}
+    checkOnceMeetUser = [];
+    AFRAME.registerComponent('registerevents', {
+        init: function () {
+            var email = localStorage.getItem('email');
+            // index.htmlから画面遷移してきていない場合、index.htmlにリダイレクトをかける
+            if (!email) {
+                document.location.href = "https://dychi.github.io/bitakin_arjs";
+            }
+            var marker = this.el;
+            window.count = 0;
+            window.updates = {};
+            window.name = dict[email];
+//            firebase.database().ref('animalName').set({ name: count});
+
+            marker.addEventListener('markerFound', function () {
+                var markerId = marker.id;
+                //初回の読み込みの場合はid名 = 自分
+                if (Object.keys(dict).length == 0) {
+                    dict[email] = markerId;
+                    console.log('markerId:' + markerId);
+                } else {
+                    name = dict[email];
+                    console.log('markerId:' + markerId);
+                    console.log('name:' + name);
+                    console.log(markerId.startsWith(name));
+                    // 自分のmarker + 同じgltfectはcountしない
+                    // if (name != markerId || markerId.startsWith(name) != true)
+                    if (name != markerId) {
+                        console.log('count:' + count)
+                        //??????????????????
+                        console.log('marker:' + checkOnceMeetUser.indexOf(markerId));
+                        if (checkOnceMeetUser.indexOf(markerId) == -1) {
+                            ++count
+                            updates['/' + 'animalName' + '/' + name] = count
+                            firebase.database().ref().update(updates);
+                            checkOnceMeetUser.push(markerId);
+                        }
+                    }
+                }
+            });
+            marker.addEventListener('markerLost', function () {
+                console.log('Marker Lost');
+            });
+        }
+    });
+</script>
+<script>
+  AFRAME.registerComponent('change-color-with-click', {
+      init: function () {
+          var markerId = this.el.id;
+          console.log(markerId);
+          var boxId = markerId + "-box";
+          console.log(boxId);
+          var box = document.querySelector("#" + boxId);
+          console.log(box);
+          box.addEventListener('click', function () {
+              console.log("Clicked,", markerId);
+              box.setAttribute('material', 'color', 'red');
+          });
+      }
+  });
+</script>
+<script src="src/camera.js"></script>
+<body style='margin: 0; overflow: hidden;'>
+
+<!-- シーンの追加とデバックUIを非表示 -->
+<a-scene embedded arjs="debugUIEnabled:false;patternRatio:0.70">
+  <a-entity camera look-controls>
+    <a-entity cursor="rayOrigin: mouse"></a-entity>
+  </a-entity>
+  <!-- アセットを定義 -->
+  <a-assets>
+    <a-asset-item id="grass-gltf" src="assets/grass_weed_model.gltf"></a-asset-item>
+  </a-assets>
+
+  <!-- 芝 -->
+  <a-marker type='pattern' url='patterns/grass.patt' id="grass" >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="#grass-gltf"
+              animation-mixer="loop: pingpong;"
+              position="-0.5 0.1 0.5"
+              rotation="-90 0 0"
+              scale="0.05 0.05 0.05"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- キリン -->
+  <a-marker type='pattern' url='./patterns/pattern-giraffe.patt' id="giraffe" >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/giraffe.gltf)"
+              lazy-load="delay: 1000;src: url(assets/origin/giraffe.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.01 0.01 0.01"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -2 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- パンダ -->
+  <a-marker type='pattern' url='patterns/pattern-panda.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/panda.gltf)"
+              lazy-load="delay: 1000;src: url(assets/origin/panda.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 0.8"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- しろくま -->
+ <a-marker type='pattern' url='patterns/pattern-white_bear.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/white_bear.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- ライオン -->
+  <a-marker type='pattern' url='patterns/pattern-lion.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/lion.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 0.5"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- 子鹿 -->
+  <a-marker type='pattern' url='patterns/pattern-fawn.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/fawn.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 0.8"
+              rotation="-90 0 30"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- ワニ -->
+  <a-marker type='pattern' url='patterns/pattern-aligator.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/aligator.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- 象 -->
+  <a-marker type='pattern' url='patterns/pattern-elephant.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/elephant.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -2 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- アライグマ -->
+  <a-marker type='pattern' url='patterns/pattern-racoon.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/racoon.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 0.5"
+              rotation="-90 0 0"
+              scale="0.02 0.02 0.02"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- ねこ -->
+  <a-marker type='pattern' url='patterns/pattern-cat.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/cat.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 0"
+              rotation="-90 0 45"
+              scale="0.03 0.03 0.03"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- キツネ -->
+  <a-marker type='pattern' url='patterns/pattern-fox.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/fox.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 0"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <!-- ひつじ -->
+  <a-marker type='pattern' url='patterns/pattern-sheep.patt' >
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/sheep.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 0.8"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-plane color="#696"
+             rotation="-90 0 0"
+             position="0 -1 0"
+             width="1" hight="1"></a-plane>
+  </a-marker>
+
+
+  <a-entity camera></a-entity>
+</a-scene>
+
+<!-- カメラのボタン -->
+<div class="ui">
+  <img id="snap">
+  <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
+  <a href="" id="take-photo" title="Take Photo"><i class="material-icons">photo_camera</i></a>
+  <a href="#" id="download-photo" download="selfie.png" title="Save Photo" class="disabled" target="_blank"><i class="material-icons">file_download</i></a>
+</div>
+</body>
+</html>
