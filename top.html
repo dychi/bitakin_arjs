@@ -263,6 +263,18 @@
     <a-box position="0 0.5 0" wireframe="true"></a-box>
   </a-marker>
 
+  <!-- ワニ -->
+  <a-marker type='pattern' url='patterns/pattern-frame.patt' id="aligator" registerevents>
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(assets/origin/aligator.gltf)"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.015 0.015 0.015"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true"></a-box>
+  </a-marker>
 
   <a-entity camera></a-entity>
 </a-scene>
