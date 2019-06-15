@@ -1,0 +1,51 @@
+<!doctype HTML>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:400" />
+  <link rel="stylesheet" type="text/css" href="src/index.css" />
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+  <script>
+      var firebaseConfig = {
+          apiKey: "AIzaSyBUO2wBPzdE-VFuUca4ETGWJ56vwLw4LEs",
+          authDomain: "arbitakin.firebaseapp.com",
+          databaseURL: "https://arbitakin.firebaseio.com",
+          projectId: "arbitakin",
+          storageBucket: "arbitakin.appspot.com",
+          messagingSenderId: "432978750455",
+          appId: "1:432978750455:web:827596c9b6750372"
+      };
+      firebase.initializeApp(firebaseConfig);
+      firebase.database();
+      function googleClick() {
+          var provider = new firebase.auth.GoogleAuthProvider();
+          provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+          firebase.auth().useDeviceLanguage();
+          firebase.auth().signInWithRedirect(provider);
+      }
+      firebase.auth().getRedirectResult().then(function(result) {
+          if (result.credential) {
+              console.log(result.user);
+              localStorage.setItem('email', result.user.email);
+              document.location.href = "https://dychi.github.io/bitakin_arjs/top.html";
+          }
+      }).catch(function(error) {
+          console.log('errorcode:' + error.code);
+          console.log('errormessage:' + error.message);
+          // console.log('erroremail:' + email);
+          console.log('errorcredential:' + error.credential);
+      });
+  </script>
+</head>
+<body>
+    <div class="box">
+        <div class="google-btn" onclick="googleClick();">
+            <div class="google-icon-wrapper">
+            <img class="google-icon-svg" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+            </div>
+            <p class="btn-text"><b>Sign in with Google</b></p>
+        </div>
+    </div>
+</body>
+</html>

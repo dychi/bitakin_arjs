@@ -1,0 +1,10 @@
+{
+  "name": "bitakin_arjs",
+  "version": "1.0.0",
+  "dependencies": {
+    
+  },
+  "scripts": {
+    "deploy": "gh-pages -d ."
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- ① スクリプトの読み込み -->
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+<script>
+  AFRAME.registerComponent('clickobjects', {
+    init: function () {
+      // var objects = document.querySelector('#grass-marker');
+      var marker = this.el;
+
+      marker.addEventListener('click', function(evt) {
+        var markerId = marker.id;
+        console.log('Marker ID:', markerId);
+        console.log('Objects Clicked.');
+        // ++count
+        // console.log('Count:', count);
+      });
+    }
+  });
+</script>
+<body style='margin: 0; overflow: hidden;'>
+
+<!-- シーンの追加とデバックUIを非表示 -->
+<a-scene embedded arjs="debugUIEnabled:false;">
+  <a-assets>
+    <img id="background" src="https://dychi.github.io/bitakin_arj/imgs/safari.jpg">
+  </a-assets>
+
+  <!-- 芝 -->
+  <a-marker type='pattern' url='https://dychi.github.io/bitakin_arj/marker/grass.patt' id="grass-marker" clickobjects>
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(https://dychi.github.io/bitakin_arj/assets/grass/grass_weed_model.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="-0.5 0.1 0.5"
+              rotation="-90 0 0"
+              scale="0.15 0.15 0.15"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true"></a-box>
+
+  </a-marker>
+
+  <!-- キリン -->
+  <a-marker type='pattern' url='https://dychi.github.io/bitakin_arj/marker/giraffe.patt' id="giraffe-marker" clickobjects>
+    <!-- オブジェクトの追加 -->
+    <a-entity gltf-model="src: url(https://dychi.github.io/bitakin_arj/assets/giraffe/giraffe.gltf);"
+              animation-mixer="loop: pingpong;"
+              position="0 0.1 1"
+              rotation="-90 0 0"
+              scale="0.01 0.01 0.01"
+              shadow="receive: true"></a-entity>
+
+    <a-box position="0 0.5 0" wireframe="true"></a-box>
+    <a-plane src="#background" rotation="-90 0 0" width="1" height="1"></a-plane>
+
+  </a-marker>
+  
+  <!-- パンダ -->
+  <!-- しろくま -->
+  <!-- ライオン -->
+  <!-- 子鹿 -->
+  <!-- ワニ -->
+  <!-- イルカ -->
+  <!-- 象 -->
+  <!-- アライグマ -->
+  <!-- ねこ -->
+  <!-- キツネ -->
+  <!-- ひつじ -->
+
+  <a-entity camera></a-entity>
+</a-scene>
+</body>
+</html>
