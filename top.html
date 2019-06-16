@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="src/camera.css">
 <!-- ① スクリプトの読み込み -->
-<!--<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>-->
-<!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>-->
-<!--<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>-->
-<!--<script src="https://raw.githubusercontent.com/youmustfight/aframe-asset-lazy-load/master/dist/aframe-asset-layz-load.min.js"></script>-->
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
+<script src="https://raw.githubusercontent.com/youmustfight/aframe-asset-lazy-load/master/dist/aframe-asset-layz-load.min.js"></script>
 
-<script src="node_modules/aframe/dist/aframe-v0.9.2.min.js"></script>
-<script src="node_modules/aframe-ar/dist/aframe-ar.min.js"></script>
-<script src="node_modules/aframe-asset-lazy-load/dist/aframe-asset-layz-load.min.js"></script>
+<!--<script src="node_modules/aframe/dist/aframe-v0.9.2.min.js"></script>-->
+<!--<script src="node_modules/aframe-ar/dist/aframe-ar.min.js"></script>-->
+<!--<script src="node_modules/aframe-asset-lazy-load/dist/aframe-asset-layz-load.min.js"></script>-->
 <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 <script>
@@ -115,7 +115,7 @@
   <!-- キリン -->
   <a-marker type='pattern' url='./patterns/pattern-giraffe.patt' id="giraffe" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/giraffe.gltf)"
+    <a-entity gltf-model="url(assets/origin/giraffe.gltf)"
               lazy-load="delay: 1000;src: url(assets/origin/giraffe.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
@@ -130,7 +130,7 @@
   <!-- パンダ -->
   <a-marker type='pattern' url='patterns/pattern-panda.patt' id="panda" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/panda.gltf)"
+    <a-entity gltf-model="url(assets/origin/panda.gltf)"
               lazy-load="delay: 1000;src: url(assets/origin/panda.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.8"
@@ -145,7 +145,7 @@
   <!-- しろくま -->
  <a-marker type='pattern' url='patterns/pattern-white_bear.patt' id="white_bear" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/white_bear.gltf)"
+    <a-entity gltf-model="url(assets/origin/white_bear.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
@@ -159,7 +159,7 @@
   <!-- ライオン -->
   <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-lion.patt' id="lion" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/lion.gltf)"
+    <a-entity gltf-model="url(assets/origin/lion.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.5"
               rotation="-90 0 0"
@@ -173,7 +173,7 @@
   <!-- 子鹿 -->
   <a-marker type='pattern' url='patterns/pattern-fawn.patt' id="fawn" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/fawn.gltf)"
+    <a-entity gltf-model="url(assets/origin/fawn.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.8"
               rotation="-90 0 0"
@@ -187,7 +187,7 @@
   <!-- ワニ -->
   <a-marker type='pattern' url='patterns/pattern-aligator.patt' id="aligator" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/aligator.gltf)"
+    <a-entity gltf-model="url(assets/origin/aligator.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
@@ -201,7 +201,7 @@
   <!-- 象 -->
   <a-marker type='pattern' url='patterns/pattern-elephant.patt' id="elephant" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/elephant.gltf)"
+    <a-entity gltf-model="url(assets/origin/elephant.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
@@ -215,7 +215,7 @@
   <!-- アライグマ -->
   <a-marker type='pattern' url='patterns/pattern-racoon.patt' id="racoon" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/racoon.gltf)"
+    <a-entity gltf-model="url(assets/origin/racoon.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.5"
               rotation="-90 0 0"
@@ -229,7 +229,7 @@
   <!-- ねこ -->
   <a-marker type='pattern' url='patterns/pattern-cat.patt' id="cat" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/cat.gltf)"
+    <a-entity gltf-model="url(assets/origin/cat.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 1 0"
               rotation="-90 0 0"
@@ -243,7 +243,7 @@
   <!-- キツネ -->
   <a-marker type='pattern' url='patterns/pattern-fox.patt' id="fox" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/fox.gltf)"
+    <a-entity gltf-model="url(assets/origin/fox.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 0"
               rotation="-90 0 0"
@@ -257,7 +257,7 @@
   <!-- ひつじ -->
   <a-marker type='pattern' url='patterns/pattern-sheep.patt' id="sheep" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/sheep.gltf)"
+    <a-entity gltf-model="url(assets/origin/sheep.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.8"
               rotation="-90 0 0"
@@ -270,7 +270,7 @@
   <!-- 展示ライオン -->
   <a-marker type='pattern' url='patterns/pattern-lion.patt' id="big-lion" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/lion.gltf)"
+    <a-entity gltf-model="url(assets/origin/lion.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
@@ -280,7 +280,7 @@
   <!-- 展示ひつじ -->
   <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-sheep.patt' id="big-sheep" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/sheep.gltf)"
+    <a-entity gltf-model="url(assets/origin/sheep.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
@@ -292,7 +292,7 @@
   <!-- 展示象 -->
   <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-elephant.patt' id="big-elephant" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/elephant.gltf)"
+    <a-entity gltf-model="url(assets/origin/elephant.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
@@ -304,7 +304,7 @@
   <!-- 展示パンダ -->
   <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-panda.patt' id="big-panda" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="src: url(assets/origin/panda.gltf)"
+    <a-entity gltf-model="url(assets/origin/panda.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
