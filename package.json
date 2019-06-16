@@ -1,0 +1,12 @@
+{
+  "name": "bitakin_arjs",
+  "version": "1.0.0",
+  "dependencies": {
+    "aframe": "^0.9.2",
+    "aframe-ar": "^0.2.1-a",
+    "aframe-asset-lazy-load": "^1.0.0"
+  },
+  "scripts": {
+    "deploy": "gh-pages -d ."
+  }
+}
