@@ -96,7 +96,6 @@
   <!-- アセットを定義 -->
   <a-assets>
     <a-asset-item id="grass-gltf" src="assets/grass_weed_model.gltf"></a-asset-item>
-    <a-asset-item id="lion-gltf" src="assets/origin/lion.gltf"></a-asset-item>
   </a-assets>
 
   <!-- 芝 -->
@@ -160,7 +159,7 @@
   <!-- ライオン -->
   <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-lion.patt' id="lion" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="#lion-gltf"
+    <a-entity gltf-model="src: url(assets/origin/lion.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.5"
               rotation="-90 0 0"
@@ -269,9 +268,9 @@
   </a-marker>
 
   <!-- 展示ライオン -->
-  <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-lion.patt' id="big-lion" registerevents>
+  <a-marker type='pattern' url='patterns/pattern-lion.patt' id="big-lion" registerevents>
     <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="#lion-gltf"
+    <a-entity gltf-model="src: url(assets/origin/lion.gltf)"
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
