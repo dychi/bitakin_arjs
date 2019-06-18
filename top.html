@@ -69,22 +69,6 @@
         }
     });
 </script>
-<script>
-  AFRAME.registerComponent('change-color-with-click', {
-      init: function () {
-          var markerId = this.el.id;
-          console.log(markerId);
-          var boxId = markerId + "-box";
-          console.log(boxId);
-          var box = document.querySelector("#" + boxId);
-          console.log(box);
-          box.addEventListener('click', function () {
-              console.log("Clicked,", markerId);
-              box.setAttribute('material', 'color', 'red');
-          });
-      }
-  });
-</script>
 <script src="src/camera.js"></script>
 <body style='margin: 0; overflow: hidden;'>
 
