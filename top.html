@@ -95,9 +95,10 @@
   </a-entity>
   <!-- アセットを定義 -->
   <a-assets>
-    <a-asset-item id="grass-gltf" src="assets/fawn.gltf"></a-asset-item>
+    <a-asset-item id="grass-gltf" src="assets/grass_weed_model.gltf"></a-asset-item>
   </a-assets>
 
+  <!-- 展示用オブジェクト -->
   <!-- 芝 -->
   <a-marker type='pattern' url='patterns/grass.patt' id="grass" >
     <!-- オブジェクトの追加 -->
@@ -120,7 +121,7 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
-              scale="0.01 0.01 0.01"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -135,7 +136,7 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.8"
               rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -149,7 +150,7 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -163,7 +164,7 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.5"
               rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -178,7 +179,7 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.8"
               rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -192,7 +193,7 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -206,7 +207,7 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 1"
               rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -220,7 +221,7 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.5"
               rotation="-90 0 0"
-              scale="0.02 0.02 0.02"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -234,7 +235,7 @@
               animation-mixer="loop: pingpong;"
               position="0 1 0"
               rotation="-90 0 0"
-              scale="0.03 0.03 0.03"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -248,7 +249,7 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 0"
               rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
@@ -262,58 +263,170 @@
               animation-mixer="loop: pingpong;"
               position="0 0.1 0.8"
               rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
+              scale="0.05 0.05 0.05"
               shadow="receive: true"></a-entity>
 
     <a-box position="0 0.5 0" wireframe="true"></a-box>
   </a-marker>
 
-  <!-- 展示ライオン -->
-  <a-marker type='pattern' url='patterns/pattern-lion.patt' id="big-lion" registerevents>
-    <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="url(assets/origin/lion.gltf)"
-              animation-mixer="loop: pingpong;"
-              position="0 0.1 1"
-              rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
-              shadow="receive: true"></a-entity>
-  </a-marker>
+  <!-- 個人用 -->
 
-  <!-- 展示ひつじ -->
-  <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-sheep.patt' id="big-sheep" registerevents>
-    <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="url(assets/origin/sheep.gltf)"
-              animation-mixer="loop: pingpong;"
-              position="0 0.1 1"
-              rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
-              shadow="receive: true"></a-entity>
-    <a-box position="0 0.5 0" wireframe="true"></a-box>
-  </a-marker>
+  <!-- キリン -->
+<!--  <a-marker type='pattern' url='./patterns/pattern-giraffe.patt' id="giraffe" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/giraffe.gltf)"-->
+<!--              lazy-load="delay: 1000;src: url(assets/origin/giraffe.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 1"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.01 0.01 0.01"-->
+<!--              shadow="receive: true"></a-entity>-->
 
-  <!-- 展示象 -->
-  <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-elephant.patt' id="big-elephant" registerevents>
-    <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="url(assets/origin/elephant.gltf)"
-              animation-mixer="loop: pingpong;"
-              position="0 0.1 1"
-              rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
-              shadow="receive: true"></a-entity>
-    <a-box position="0 0.5 0" wireframe="true"></a-box>
-  </a-marker>
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
 
-  <!-- 展示パンダ -->
-  <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-panda.patt' id="big-panda" registerevents>
-    <!-- オブジェクトの追加 -->
-    <a-entity gltf-model="url(assets/origin/panda.gltf)"
-              animation-mixer="loop: pingpong;"
-              position="0 0.1 1"
-              rotation="-90 0 0"
-              scale="0.015 0.015 0.015"
-              shadow="receive: true"></a-entity>
-    <a-box position="0 0.5 0" wireframe="true"></a-box>
-  </a-marker>
+
+<!--  &lt;!&ndash; パンダ &ndash;&gt;-->
+<!--  <a-marker type='pattern' url='patterns/pattern-panda.patt' id="panda" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/panda.gltf)"-->
+<!--              lazy-load="delay: 1000;src: url(assets/origin/panda.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 0.8"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.015 0.015 0.015"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
+
+<!--  &lt;!&ndash; しろくま &ndash;&gt;-->
+<!-- <a-marker type='pattern' url='patterns/pattern-white_bear.patt' id="white_bear" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/white_bear.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 1"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.015 0.015 0.015"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
+
+<!--  &lt;!&ndash; ライオン &ndash;&gt;-->
+<!--  <a-marker type='pattern' url='patterns/bigAnimals/big-pattern-lion.patt' id="lion" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/lion.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 0.5"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.015 0.015 0.015"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
+
+<!--  &lt;!&ndash; 子鹿 &ndash;&gt;-->
+<!--  <a-marker type='pattern' url='patterns/pattern-fawn.patt' id="fawn" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity obj-model="obj: url(assets/obj/fawn/fawn.obj); mtl: url(assets/obj/fawn/fawn.obj.mtl)"-->
+<!--              material="src: url(assets/obj/fawn/Fawn_Running_Diffuse.png)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 0.8"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.015 0.015 0.015"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
+
+<!--  &lt;!&ndash; ワニ &ndash;&gt;-->
+<!--  <a-marker type='pattern' url='patterns/pattern-aligator.patt' id="aligator" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/aligator.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 1"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.015 0.015 0.015"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
+
+<!--  &lt;!&ndash; 象 &ndash;&gt;-->
+<!--  <a-marker type='pattern' url='patterns/pattern-elephant.patt' id="elephant" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/elephant.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 1"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.015 0.015 0.015"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
+
+<!--  &lt;!&ndash; アライグマ &ndash;&gt;-->
+<!--  <a-marker type='pattern' url='patterns/pattern-racoon.patt' id="racoon" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/racoon.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 0.5"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.02 0.02 0.02"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
+
+<!--  &lt;!&ndash; ねこ &ndash;&gt;-->
+<!--  <a-marker type='pattern' url='patterns/pattern-cat.patt' id="cat" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/cat.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 1 0"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.03 0.03 0.03"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
+
+<!--  &lt;!&ndash; キツネ &ndash;&gt;-->
+<!--  <a-marker type='pattern' url='patterns/pattern-fox.patt' id="fox" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/fox.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 0"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.015 0.015 0.015"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
+
+<!--  &lt;!&ndash; ひつじ &ndash;&gt;-->
+<!--  <a-marker type='pattern' url='patterns/pattern-sheep.patt' id="sheep" registerevents>-->
+<!--    &lt;!&ndash; オブジェクトの追加 &ndash;&gt;-->
+<!--    <a-entity gltf-model="url(assets/origin/sheep.gltf)"-->
+<!--              animation-mixer="loop: pingpong;"-->
+<!--              position="0 0.1 0.8"-->
+<!--              rotation="-90 0 0"-->
+<!--              scale="0.015 0.015 0.015"-->
+<!--              shadow="receive: true"></a-entity>-->
+
+<!--    <a-box position="0 0.5 0" wireframe="true"></a-box>-->
+<!--  </a-marker>-->
+
 
   <a-entity camera></a-entity>
 </a-scene>
