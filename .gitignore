@@ -10,4 +10,5 @@ originalImg/
 
 code/
 
+node_modules/
 package-lock.json
